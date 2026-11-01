@@ -51,20 +51,21 @@ export const PhotoGallery: React.FC = () => {
             title="Click to view full screen"
           >
             {/* Pure Photo */}
-            <img
-              src={mem.imageUrl}
-              alt=""
-              className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-108"
-              loading="lazy"
-              onError={(e) => {
-                const target = e.currentTarget;
-                const parts = mem.imageUrl.split('/');
-                const fileName = parts[parts.length - 1]?.split('?')[0];
-                if (fileName && !target.src.includes('/images/juu/')) {
-                  target.src = `/images/juu/${decodeURIComponent(fileName)}`;
-                }
-              }}
-            />
+            {mem.imageUrl && (mem.imageUrl.startsWith('http://') || mem.imageUrl.startsWith('https://') || mem.imageUrl.startsWith('data:')) ? (
+              <img
+                src={mem.imageUrl}
+                alt=""
+                className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-108"
+                loading="lazy"
+                onError={(e) => {
+                  e.currentTarget.style.opacity = '0.5';
+                }}
+              />
+            ) : (
+              <div className="w-full h-full flex items-center justify-center bg-[#101725]/60 animate-pulse">
+                <Sparkles className="w-5 h-5 text-[#C6A56B]/40 animate-spin" />
+              </div>
+            )}
 
             {/* Subtle Gradient Glow on Hover */}
             <div className="absolute inset-0 bg-gradient-to-t from-[#101725]/85 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />

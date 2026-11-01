@@ -66,12 +66,7 @@ export const Lightbox: React.FC<LightboxProps> = ({
           alt=""
           className="object-contain max-h-[82vh] sm:max-h-[85vh] max-w-[92vw] sm:max-w-[85vw] md:max-w-4xl select-none"
           onError={(e) => {
-            const target = e.currentTarget;
-            const parts = memory.imageUrl.split('/');
-            const fileName = parts[parts.length - 1]?.split('?')[0];
-            if (fileName && !target.src.includes('/images/juu/')) {
-              target.src = `/images/juu/${decodeURIComponent(fileName)}`;
-            }
+            e.currentTarget.style.opacity = '0.5';
           }}
         />
       </div>

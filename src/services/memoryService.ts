@@ -24,7 +24,7 @@ import { supabase, isSupabaseConfigured } from '../lib/supabase';
 
 const STORAGE_KEYS = {
   TIMELINE: 'juu_timeline',
-  MEMORIES: 'juu_memories',
+  MEMORIES: 'juu_memories_v2',
   LETTERS: 'juu_letters',
   VOICE_NOTES: 'juu_voice_notes',
   PROMISES: 'juu_promises',
@@ -127,18 +127,64 @@ export const memoryService = {
   // ==========================================
   // MEMORIES
   // ==========================================
+  async resolvePrivateSignedUrls(memories: Memory[]): Promise<Memory[]> {
+    if (!isSupabaseConfigured || !supabase || memories.length === 0) return memories;
+
+    const itemsToSign: { index: number; path: string }[] = [];
+
+    memories.forEach((m, idx) => {
+      if (!m.imageUrl) return;
+      const cleaned = m.imageUrl.replace(/^\/images\/juu\//, '').trim();
+      // If not an external http(s) URL, it is a private file key in image-of_juu
+      if (!cleaned.startsWith('http://') && !cleaned.startsWith('https://')) {
+        itemsToSign.push({ index: idx, path: cleaned });
+      }
+    });
+
+    if (itemsToSign.length === 0) return memories;
+
+    try {
+      const paths = itemsToSign.map(it => it.path);
+      const { data, error } = await supabase.storage
+        .from('image-of_juu')
+        .createSignedUrls(paths, 60 * 60 * 24 * 7); // 7-day secure authenticated URLs
+
+      if (!error && data) {
+        const result = [...memories];
+        data.forEach((item, i) => {
+          if (item.signedUrl) {
+            const memIndex = itemsToSign[i].index;
+            result[memIndex] = {
+              ...result[memIndex],
+              imageUrl: item.signedUrl
+            };
+          }
+        });
+        return result;
+      }
+    } catch (e) {
+      console.warn('Failed to resolve private signed URLs from Supabase storage:', e);
+    }
+
+    return memories;
+  },
+
   async getMemories(): Promise<Memory[]> {
     if (isSupabaseConfigured && supabase) {
       try {
         const { data, error } = await supabase.from('memories').select('*').order('date', { ascending: false });
         if (!error && data && data.length > 0) {
-          memoriesCache = data as Memory[];
-          setLocal(STORAGE_KEYS.MEMORIES, data);
+          const resolvedData = await this.resolvePrivateSignedUrls(data as Memory[]);
+          memoriesCache = resolvedData;
+          setLocal(STORAGE_KEYS.MEMORIES, resolvedData);
           return memoriesCache;
         }
       } catch (e) {
         console.warn('Supabase memories query failed, falling back to local:', e);
       }
+    }
+    if (memoriesCache && memoriesCache.length > 0) {
+      memoriesCache = await this.resolvePrivateSignedUrls(memoriesCache);
     }
     return memoriesCache;
   },

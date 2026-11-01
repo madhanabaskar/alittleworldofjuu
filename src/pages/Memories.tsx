@@ -126,20 +126,21 @@ export const Memories: React.FC = () => {
             >
               {/* Image Box - Portrait ratio with object-top ensures face is never cropped */}
               <div className="relative aspect-[4/5] sm:aspect-square w-full overflow-hidden bg-black/40">
-                <img
-                  src={mem.imageUrl}
-                  alt={mem.title}
-                  className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700"
-                  loading="lazy"
-                  onError={(e) => {
-                    const target = e.currentTarget;
-                    const parts = mem.imageUrl.split('/');
-                    const fileName = parts[parts.length - 1]?.split('?')[0];
-                    if (fileName && !target.src.includes('/images/juu/')) {
-                      target.src = `/images/juu/${decodeURIComponent(fileName)}`;
-                    }
-                  }}
-                />
+                {mem.imageUrl && (mem.imageUrl.startsWith('http://') || mem.imageUrl.startsWith('https://') || mem.imageUrl.startsWith('data:')) ? (
+                  <img
+                    src={mem.imageUrl}
+                    alt={mem.title}
+                    className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700"
+                    loading="lazy"
+                    onError={(e) => {
+                      e.currentTarget.style.opacity = '0.5';
+                    }}
+                  />
+                ) : (
+                  <div className="w-full h-full flex items-center justify-center bg-[#101725]/60 animate-pulse">
+                    <Sparkles className="w-5 h-5 text-[#C6A56B]/40 animate-spin" />
+                  </div>
+                )}
                 <div className="absolute inset-0 bg-gradient-to-t from-[#101725] via-transparent to-transparent opacity-80" />
 
                 {/* Top floating badges */}
@@ -204,20 +205,21 @@ export const Memories: React.FC = () => {
                 title="Tap to view full screen"
               >
                 {/* Pure Image Only */}
-                <img
-                  src={mem.imageUrl}
-                  alt=""
-                  className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-108"
-                  loading="lazy"
-                  onError={(e) => {
-                    const target = e.currentTarget;
-                    const parts = mem.imageUrl.split('/');
-                    const fileName = parts[parts.length - 1]?.split('?')[0];
-                    if (fileName && !target.src.includes('/images/juu/')) {
-                      target.src = `/images/juu/${decodeURIComponent(fileName)}`;
-                    }
-                  }}
-                />
+                {mem.imageUrl && (mem.imageUrl.startsWith('http://') || mem.imageUrl.startsWith('https://') || mem.imageUrl.startsWith('data:')) ? (
+                  <img
+                    src={mem.imageUrl}
+                    alt=""
+                    className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-108"
+                    loading="lazy"
+                    onError={(e) => {
+                      e.currentTarget.style.opacity = '0.5';
+                    }}
+                  />
+                ) : (
+                  <div className="w-full h-full flex items-center justify-center bg-[#101725]/60 animate-pulse">
+                    <Sparkles className="w-5 h-5 text-[#C6A56B]/40 animate-spin" />
+                  </div>
+                )}
 
                 {/* Ambient Golden Vignette on Hover */}
                 <div className="absolute inset-0 bg-gradient-to-t from-[#101725]/85 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />

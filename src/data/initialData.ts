@@ -81,7 +81,7 @@ export const INITIAL_MEMORIES: Memory[] = [
     displayDate: '19 September 2025',
     location: 'Hospital Corridors',
     category: 'firsts',
-    imageUrl: '/images/juu/7.jpeg',
+    imageUrl: '7.webp',
     caption: 'Who would have known that accidentally hitting me would become the best accident of my life?',
     isPlaceholder: false,
     tags: ['First Meet', 'Destiny', 'Hospital']
@@ -93,7 +93,7 @@ export const INITIAL_MEMORIES: Memory[] = [
     displayDate: 'October 2025',
     location: 'Whispered Audio Calls',
     category: 'quiet_moments',
-    imageUrl: '/images/juu/3.jpeg',
+    imageUrl: '3.webp',
     caption: 'When sleep was secondary because listening to your voice talking about your day was the calmest place in the world.',
     isPlaceholder: false,
     tags: ['Night Calls', 'Voice', 'Comfort']
@@ -105,7 +105,7 @@ export const INITIAL_MEMORIES: Memory[] = [
     displayDate: 'November 2025',
     location: 'A Fleeting Glance',
     category: 'candid',
-    imageUrl: '/images/juu/4.jpeg',
+    imageUrl: '4.webp',
     caption: 'That particular way you look down and smile when you are teased. It melts all the heavy noise of the world.',
     isPlaceholder: false,
     tags: ['Smile', 'Candid', 'Warmth']
@@ -117,7 +117,7 @@ export const INITIAL_MEMORIES: Memory[] = [
     displayDate: 'December 2025',
     location: 'Desk Under Warm Lamp',
     category: 'special',
-    imageUrl: '/images/juu/6.jpeg',
+    imageUrl: '6.webp',
     caption: 'Watching how dedicated you are to your studies and your future. Never forget how smart, capable, and resilient you are.',
     isPlaceholder: false,
     tags: ['Dreams', 'Education', 'Pride']
@@ -129,7 +129,7 @@ export const INITIAL_MEMORIES: Memory[] = [
     displayDate: 'January 2026',
     location: 'Coastal Evening',
     category: 'travel',
-    imageUrl: '/images/juu/1.jpeg',
+    imageUrl: '1.webp',
     caption: 'Standing where the wind was cool and thinking about how much I want to make sure you always feel cherished and safe.',
     isPlaceholder: false,
     tags: ['Ocean', 'Breeze', 'Reassurance']
@@ -141,7 +141,7 @@ export const INITIAL_MEMORIES: Memory[] = [
     displayDate: 'February 2026',
     location: 'Every Random Chat',
     category: 'candid',
-    imageUrl: '/images/juu/2.jpeg',
+    imageUrl: '2.webp',
     caption: 'The way we laugh at things nobody else would ever understand. Those moments are pure gold.',
     isPlaceholder: false,
     tags: ['Laughter', 'Inside Jokes', 'Joy']
