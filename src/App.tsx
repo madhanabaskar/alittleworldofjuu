@@ -13,6 +13,7 @@ import { Entrance } from './pages/Entrance';
 import { Home } from './pages/Home';
 import { OurStory } from './pages/OurStory';
 import { Memories } from './pages/Memories';
+import { PhotoGallery } from './pages/PhotoGallery';
 import { OpenWhen } from './pages/OpenWhen';
 import { HearMyVoice } from './pages/HearMyVoice';
 import { Comfort } from './pages/Comfort';
@@ -54,6 +55,7 @@ const AnimatedRouteContent: React.FC = () => {
         <Route path="/home" element={<ProtectedRoute><Home /></ProtectedRoute>} />
         <Route path="/story" element={<ProtectedRoute><OurStory /></ProtectedRoute>} />
         <Route path="/memories" element={<ProtectedRoute><Memories /></ProtectedRoute>} />
+        <Route path="/gallery" element={<ProtectedRoute><PhotoGallery /></ProtectedRoute>} />
         <Route path="/letters" element={<ProtectedRoute><OpenWhen /></ProtectedRoute>} />
         <Route path="/voice" element={<ProtectedRoute><HearMyVoice /></ProtectedRoute>} />
         <Route path="/comfort" element={<ProtectedRoute><Comfort /></ProtectedRoute>} />

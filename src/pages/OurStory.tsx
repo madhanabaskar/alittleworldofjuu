@@ -84,18 +84,13 @@ export const OurStory: React.FC = () => {
                 {/* Event Card Content */}
                 <div className="w-full md:w-[calc(50%-2rem)]">
                   <div className="glass-card p-6 sm:p-7 rounded-2xl border border-[#C6A56B]/25 hover:border-[#C6A56B]/60 transition-all">
-                    {/* Date & Location Header */}
-                    <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
-                      <span className="font-mono text-xs text-[#C6A56B] bg-[#101725]/80 px-2.5 py-1 rounded-full border border-[#C6A56B]/20">
-                        {event.displayDate}
-                      </span>
-                      {event.location && (
-                        <span className="text-xs text-[#F5EBDD]/60 flex items-center gap-1">
-                          <MapPin className="w-3 h-3 text-[#C6A56B]" />
-                          {event.location}
-                        </span>
-                      )}
-                    </div>
+                    {/* Location Header */}
+                    {event.location && (
+                      <div className="flex items-center gap-1.5 text-xs text-[#C6A56B] mb-3">
+                        <MapPin className="w-3.5 h-3.5 text-[#C6A56B]" />
+                        <span className="font-sans text-[11px] text-[#F5EBDD]/70">{event.location}</span>
+                      </div>
+                    )}
 
                     {/* Title */}
                     <h4 className="font-serif text-xl sm:text-2xl text-[#F5EBDD] mb-3">

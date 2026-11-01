@@ -81,9 +81,9 @@ export const INITIAL_MEMORIES: Memory[] = [
     displayDate: '19 September 2025',
     location: 'Hospital Corridors',
     category: 'firsts',
-    imageUrl: 'https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?q=80&w=1000&auto=format&fit=crop',
-    caption: 'Who would have known that accidentally hitting me would become the best accident of my life? (Placeholder artwork ready for private photo)',
-    isPlaceholder: true,
+    imageUrl: '/images/juu/7.jpeg',
+    caption: 'Who would have known that accidentally hitting me would become the best accident of my life?',
+    isPlaceholder: false,
     tags: ['First Meet', 'Destiny', 'Hospital']
   },
   {
@@ -93,9 +93,9 @@ export const INITIAL_MEMORIES: Memory[] = [
     displayDate: 'October 2025',
     location: 'Whispered Audio Calls',
     category: 'quiet_moments',
-    imageUrl: 'https://images.unsplash.com/photo-1509198397868-475647b2a1e5?q=80&w=1000&auto=format&fit=crop',
+    imageUrl: '/images/juu/3.jpeg',
     caption: 'When sleep was secondary because listening to your voice talking about your day was the calmest place in the world.',
-    isPlaceholder: true,
+    isPlaceholder: false,
     tags: ['Night Calls', 'Voice', 'Comfort']
   },
   {
@@ -105,9 +105,9 @@ export const INITIAL_MEMORIES: Memory[] = [
     displayDate: 'November 2025',
     location: 'A Fleeting Glance',
     category: 'candid',
-    imageUrl: 'https://images.unsplash.com/photo-1494774157365-9e04c6720e47?q=80&w=1000&auto=format&fit=crop',
+    imageUrl: '/images/juu/4.jpeg',
     caption: 'That particular way you look down and smile when you are teased. It melts all the heavy noise of the world.',
-    isPlaceholder: true,
+    isPlaceholder: false,
     tags: ['Smile', 'Candid', 'Warmth']
   },
   {
@@ -117,9 +117,9 @@ export const INITIAL_MEMORIES: Memory[] = [
     displayDate: 'December 2025',
     location: 'Desk Under Warm Lamp',
     category: 'special',
-    imageUrl: 'https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?q=80&w=1000&auto=format&fit=crop',
+    imageUrl: '/images/juu/6.jpeg',
     caption: 'Watching how dedicated you are to your studies and your future. Never forget how smart, capable, and resilient you are.',
-    isPlaceholder: true,
+    isPlaceholder: false,
     tags: ['Dreams', 'Education', 'Pride']
   },
   {
@@ -129,9 +129,9 @@ export const INITIAL_MEMORIES: Memory[] = [
     displayDate: 'January 2026',
     location: 'Coastal Evening',
     category: 'travel',
-    imageUrl: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1000&auto=format&fit=crop',
+    imageUrl: '/images/juu/1.jpeg',
     caption: 'Standing where the wind was cool and thinking about how much I want to make sure you always feel cherished and safe.',
-    isPlaceholder: true,
+    isPlaceholder: false,
     tags: ['Ocean', 'Breeze', 'Reassurance']
   },
   {
@@ -141,9 +141,9 @@ export const INITIAL_MEMORIES: Memory[] = [
     displayDate: 'February 2026',
     location: 'Every Random Chat',
     category: 'candid',
-    imageUrl: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=1000&auto=format&fit=crop',
+    imageUrl: '/images/juu/2.jpeg',
     caption: 'The way we laugh at things nobody else would ever understand. Those moments are pure gold.',
-    isPlaceholder: true,
+    isPlaceholder: false,
     tags: ['Laughter', 'Inside Jokes', 'Joy']
   }
 ];
@@ -485,7 +485,7 @@ export const INITIAL_LITTLE_THINGS: LittleThingItem[] = [
     id: 'thing-1',
     category: 'nicknames',
     title: 'My Favorite Names For You',
-    description: 'Laduuu, Kutty, My Little Moon,Miss Stubborn.',
+    description: 'Laduuu, Kutty, muu,Thango,Venna,Chellakutyyy.',
     icon: 'Sparkles',
     tag: 'Sweet & Playful'
   },

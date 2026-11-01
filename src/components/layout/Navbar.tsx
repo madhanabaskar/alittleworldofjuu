@@ -18,6 +18,7 @@ export const Navbar: React.FC = () => {
   ];
 
   const moreLinks = [
+    { to: '/gallery', label: 'Pure Photo Gallery 📷' },
     { to: '/letters', label: 'Open When Letters' },
     { to: '/letter', label: 'A Letter For You' },
     { to: '/about-juu', label: 'Little Things About Juu' },
