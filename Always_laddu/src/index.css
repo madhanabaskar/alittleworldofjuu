@@ -1,0 +1,189 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --color-midnight: #101725;
+    --color-deep-navy: #182338;
+    --color-graphite: #202C40;
+    --color-gold: #C6A56B;
+    --color-gold-light: #E0C79B;
+    --color-gold-dark: #9E7D46;
+    --color-ivory: #F5EBDD;
+    --color-wine: #75485B;
+    --color-wine-dark: #4A2737;
+    --color-soft-white: #FFFFFF;
+
+    --font-cinzel: 'Cinzel', serif;
+    --font-serif: 'Cormorant Garamond', Georgia, serif;
+    --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-handwriting: 'Caveat', cursive;
+  }
+
+  * {
+    border-color: rgba(198, 165, 107, 0.15);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    background-color: #101725;
+    color: #F5EBDD;
+    font-family: var(--font-sans);
+    min-height: 100vh;
+    min-height: 100dvh;
+    overflow-x: hidden;
+  }
+
+  /* Custom luxury scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #101725;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #202C40;
+    border-radius: 9999px;
+    border: 1px solid rgba(198, 165, 107, 0.2);
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #C6A56B;
+  }
+}
+
+/* Custom Typography Utilities */
+.font-cinzel {
+  font-family: var(--font-cinzel);
+}
+.font-serif {
+  font-family: var(--font-serif);
+}
+.font-sans {
+  font-family: var(--font-sans);
+}
+.font-handwriting {
+  font-family: var(--font-handwriting);
+}
+
+/* Luxury Metallic & Celestial Gradients */
+.text-gold-gradient {
+  background: linear-gradient(135deg, #F5EBDD 0%, #C6A56B 50%, #E0C79B 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gold-shimmer {
+  background: linear-gradient(90deg, #C6A56B 0%, #FFF 50%, #C6A56B 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 4s ease infinite;
+}
+
+.bg-radial-celestial {
+  background: radial-gradient(ellipse at top, rgba(24, 35, 56, 0.8) 0%, rgba(16, 23, 37, 0.98) 70%, #101725 100%);
+}
+
+.bg-moon-glow {
+  background: radial-gradient(circle at center, rgba(198, 165, 107, 0.12) 0%, rgba(117, 72, 91, 0.06) 50%, transparent 70%);
+}
+
+/* Glassmorphism Classes */
+.glass-panel {
+  background: rgba(24, 35, 56, 0.65);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(198, 165, 107, 0.2);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+.glass-card {
+  background: rgba(32, 44, 64, 0.5);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(198, 165, 107, 0.18);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-card:hover {
+  border-color: rgba(198, 165, 107, 0.45);
+  box-shadow: 0 12px 30px -10px rgba(198, 165, 107, 0.15);
+  transform: translateY(-2px);
+}
+
+.glass-pill {
+  background: rgba(24, 35, 56, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(198, 165, 107, 0.25);
+}
+
+/* Safe Area Insets for Mobile */
+.pb-safe {
+  padding-bottom: env(safe-area-inset-bottom, 1rem);
+}
+.pt-safe {
+  padding-top: env(safe-area-inset-top, 1rem);
+}
+
+/* Animations */
+@keyframes shimmer {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes floatSlow {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-10px) rotate(1deg); }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 0.7; transform: scale(1.05); }
+}
+
+@keyframes breatheGuide {
+  0%, 100% { transform: scale(1); box-shadow: 0 0 20px rgba(198, 165, 107, 0.2); }
+  50% { transform: scale(1.35); box-shadow: 0 0 50px rgba(198, 165, 107, 0.5); }
+}
+
+.animate-float-slow {
+  animation: floatSlow 6s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 4s ease-in-out infinite;
+}
+
+.animate-breathe {
+  animation: breatheGuide 8s ease-in-out infinite;
+}
+
+/* Mobile tap target utilities */
+.touch-target {
+  min-height: 44px;
+  min-width: 44px;
+}
+
+/* Silky smooth route navigation transition */
+@keyframes pageFadeIn {
+  from {
+    opacity: 0.85;
+    transform: translateY(3px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-page-enter {
+  animation: pageFadeIn 180ms ease-out forwards;
+  will-change: opacity, transform;
+}
+
